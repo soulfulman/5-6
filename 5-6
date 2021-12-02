@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+struct S
+{
+	int n;
+	int arr[];//柔性数组成员
+};
+int main()
+{
+	/*printf("%d\n", sizeof(struct S));*/
+	int i = 0;
+	struct S* p=(struct S*)malloc(sizeof(struct S) + 10 * sizeof(int));
+	p->n = 100;
+	for (i = 0; i < 10; i++)
+	{
+		p->arr[i]=i;
+
+	}
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d ", p->arr[i]);
+	}
+	free(p);
+	p = NULL;
+	return 0;
+
+}
